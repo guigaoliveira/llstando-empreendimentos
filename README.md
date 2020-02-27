@@ -24,8 +24,9 @@ npm test
 
 ## O que eu adicionaria se tivesse mais tempo
 
+- Criaria um tema para a aplicação usando o Styled Components 
 - Cacheamento para as requisições a API
 - Lazy loading das imagens
-- Melhoria as mensagens de possíveis erros ao tentar listar
+- Melhoria as mensagens de possíveis erros (de rede por exemplo) ao tentar listar
 - Adicionaria um estado de lista vazia para a lista de empreendimentos
 - Colocaria filtros para a listagem
