@@ -2,6 +2,12 @@
 
 A aplicação foi feita usando React, TypeScript, Styled Components & React Icons.
 
+## Instruções para instalação de dependências
+
+```bash
+npm i
+```
+
 ## Instruções para rodar a aplicação
 
 ### Windows (cmd.exe)
