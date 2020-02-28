@@ -24,9 +24,14 @@ npm test
 
 ## O que eu adicionaria se tivesse mais tempo
 
-- Criaria um tema para a aplicação usando o Styled Components 
+- Criaria um tema para a aplicação usando o Styled Components
 - Cacheamento para as requisições a API
 - Lazy loading das imagens
 - Melhoria as mensagens de possíveis erros (de rede por exemplo) ao tentar listar
 - Adicionaria um estado de lista vazia para a lista de empreendimentos
 - Colocaria filtros para a listagem
+- Adicionaria botões para ir para o ínicio e para a última página no componente de paginação
+
+## Link para a aplicação (deploy)
+
+[Acesse aqui.](https://zen-kowalevski-fbf7c9.netlify.com)
