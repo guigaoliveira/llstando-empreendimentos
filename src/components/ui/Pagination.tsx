@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { useState } from 'react'
+import { FaArrowLeft, FaArrowRight } from 'react-icons/fa'
 import styled from 'styled-components'
 import { getPagingRange } from '../../utils'
 
@@ -32,22 +33,24 @@ const Pagination = ({ totalPages, min = 0, length = 6, onPageChanged }: Paginati
   return (
     <Container>
       <Button onClick={onPrevious} disabled={!page}>
-        {'<'}
+        <FaArrowLeft />
       </Button>
       {getPagingRange(page, { min, total: totalPages, length }).map(number => (
         <Button
           key={number}
           selected={page === number}
           onClick={() => {
-            setPage(number)
-            onPageChanged(number)
+            setPage(() => {
+              onPageChanged(number)
+              return number
+            })
           }}
         >
           {number + 1}
         </Button>
       ))}
       <Button onClick={onNext} disabled={page === totalPages - 1}>
-        {'>'}
+        <FaArrowRight />
       </Button>
     </Container>
   )
@@ -63,18 +66,19 @@ type ButtonProps = {
 const Button = styled.div<ButtonProps>`
   padding: 8px 12px;
   border-radius: 6px;
-  border: 1px solid #ccc;
   display: inline-block;
   cursor: pointer;
   :hover {
-    background: #eeeeee;
+    background: #90caf9;
   }
-  background: #fff;
+  background: ${props => (props.selected ? '#1565c0' : '#fff')};
   opacity: ${props => (props.disabled ? 0.25 : 1)};
   pointer-events: ${props => (props.disabled ? 'none' : 'initial')};
   user-select: none;
-  font-weight: ${props => (props.selected ? 'bold' : 'normal')};
-  color: ${props => props.selected && '#0d47a1'};
+  font-weight: bold;
+  color: ${props => props.selected && '#fff'};
+  display: flex;
+  align-items: center;
 `
 const Container = styled.div`
   display: grid;
