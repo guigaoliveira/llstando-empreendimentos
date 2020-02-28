@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { FaBed, FaBath, FaRulerVertical, FaCar } from 'react-icons/fa'
+import { FaBed, FaBath, FaRulerCombined, FaCar } from 'react-icons/fa'
 import { Icon, LikeButton } from '../ui'
 import { Building, Address } from '../../typings/building'
 
@@ -55,7 +55,7 @@ const BuildingList = ({ items }: BuildingListProps) => {
                 <ListDetails>
                   <div>
                     <Icon>
-                      <FaRulerVertical size={16} />
+                      <FaRulerCombined size={16} />
                     </Icon>{' '}
                     {maxArea} m²
                   </div>
@@ -126,7 +126,7 @@ const ListItem = styled.li`
 
 const ListImage = styled.img`
   width: 100%;
-  height: 280px;
+  height: 220px;
   border-radius: 6px;
 `
 
@@ -155,6 +155,5 @@ const ListDetails = styled.div`
   grid-auto-flow: column;
   grid-auto-columns: max-content;
   font-size: 0.875rem;
-  margin-left: -4px;
   color: #616161;
 `
