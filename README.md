@@ -1,4 +1,4 @@
-# Desafio para Pessoa Desenvolvedora - Favoritar Empreendimentos V2
+# Desafio Órulo para Pessoa Desenvolvedora - Favoritar Empreendimentos V2
 
 A aplicação foi feita usando React, TypeScript, Styled Components & React Icons.
 
