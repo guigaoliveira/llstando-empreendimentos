@@ -1,6 +1,12 @@
-# Desafio para Pessoa Desenvolvedora - Favoritar Empreendimentos V2
+# Desafio Órulo para Pessoa Desenvolvedora - Favoritar Empreendimentos
 
 A aplicação foi feita usando React, TypeScript, Styled Components & React Icons.
+
+## Instruções para instalação de dependências
+
+```bash
+npm i
+```
 
 ## Instruções para rodar a aplicação
 
@@ -32,6 +38,7 @@ npm test
 - Adicionaria um estado de lista vazia para a lista de empreendimentos
 - Colocaria filtros para a listagem
 - Adicionaria botões para ir para o ínicio e para a última página no componente de paginação
+- Para cada página selecionada no componente de páginação mudaria o link para /numero-da-pagina por exemplo e tornaria acessível via rota 
 
 ## Link para a aplicação (deploy)
 
