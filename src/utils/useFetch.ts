@@ -18,23 +18,27 @@ export default function useFetch<T extends unknown>(
   const [fetchUrl, setFetchUrl] = useState(url)
 
   useEffect(() => {
+    const abortController = new AbortController()
+    const { signal } = abortController
+
     async function fetchData() {
       setIsError(false)
       setIsLoading(true)
       try {
         const response = await fetch(fetchUrl, fetchOptions)
-        setIsLoading(false)
         const result: T = await response.json()
-        setData(result)
+        if (!signal.aborted) setData(result)
       } catch (err) {
-        setIsError(true)
+        if (!signal.aborted) setIsError(true)
+      } finally {
+        if (!signal.aborted) setIsLoading(false)
       }
     }
 
-    try {
-      fetchData()
-    } catch (err) {
-      setIsError(true)
+    fetchData()
+
+    return () => {
+      abortController.abort()
     }
   }, [fetchUrl, fetchOptions])
 
