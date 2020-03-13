@@ -22,7 +22,7 @@ export type Building = {
   readonly name: string
   readonly min_price: number
   readonly address: Address
-  readonly default_image: DefaultImage
+  readonly default_image?: DefaultImage
   readonly min_bedrooms: number
   readonly max_bedrooms: number
   readonly min_bathrooms: number

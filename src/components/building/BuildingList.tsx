@@ -47,7 +47,7 @@ const BuildingList = ({ items }: BuildingListProps) => {
         }) => {
           return (
             <ListItem key={id}>
-              <ListImage src={defaultImage['520x280']} />
+              <ListImage src={defaultImage && defaultImage['520x280']} />
               <ListInfos>
                 <ListPrice>{formatPrice(minPrice)}</ListPrice>
                 <ListName>{name}</ListName>
@@ -128,6 +128,7 @@ const ListImage = styled.img`
   width: 100%;
   height: 220px;
   border-radius: 6px;
+  background: #eceff1;
 `
 
 const ListInfos = styled.div`
