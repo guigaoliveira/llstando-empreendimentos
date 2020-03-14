@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { createGlobalStyle } from 'styled-components'
-import { Home } from './pages'
+import { Home, Favorites } from './pages'
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -11,6 +11,14 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     font-family: 'Open Sans';
     color: #212121;
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
+    font-weight: normal;
+  }
+  a:hover {
+      text-decoration: underline;
   }
 `
 
@@ -22,6 +30,9 @@ export default function App() {
         <Switch>
           <Route path="/" exact>
             <Home />
+          </Route>
+          <Route path="/favorites" exact>
+            <Favorites />
           </Route>
         </Switch>
       </Router>

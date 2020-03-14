@@ -1,1 +1,1 @@
-export { default as BuildingList } from './BuildingList'
+export { default as Buildings } from './Buildings'

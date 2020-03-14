@@ -1,10 +1,12 @@
 import * as React from 'react'
-import { useCallback } from 'react'
+import { useState, useCallback } from 'react'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-import { useFetch } from '../utils'
+import { Buildings } from '../components/building'
+import { Header, LoadingSpinner, MainContainer, Pagination } from '../components/ui'
 import { Building } from '../typings/building'
-import { Pagination, LoadingSpinner } from '../components/ui'
-import { BuildingList } from '../components/building'
+import { useFetch } from '../utils'
+import { getTotalFavorites, addFavorite, removeFavorite } from '../utils/favoritesHelpers'
 
 type ResponseData = {
   buildings?: Building[]
@@ -25,38 +27,47 @@ const Home = () => {
     setFetchUrl,
   ])
 
+  const [favoriteTotal, setFavoriteTotal] = useState(getTotalFavorites())
+
   return (
-    <Container>
-      <Title>Empreendimentos</Title>
+    <MainContainer>
+      <Header>
+        Empreendimentos
+        <FavoritesLink>
+          <Link to="/favorites">Meus favoritos ({favoriteTotal})</Link>
+        </FavoritesLink>
+      </Header>
       {isLoading && (
         <LoadingContainer>
           <LoadingSpinner />
         </LoadingContainer>
       )}
       {isError && <div>Ops...houve algum erro ao tentar listar os empreendimentos :(</div>}
-      {data && data.buildings && <BuildingList items={data.buildings} />}
+      {data && data.buildings && (
+        <Buildings
+          items={data.buildings}
+          onToggleLike={(liked, buildingData) => {
+            if (liked) addFavorite(buildingData)
+            else removeFavorite(buildingData)
+            return setFavoriteTotal(getTotalFavorites())
+          }}
+        />
+      )}
       {data && data.total_pages && (
         <Pagination totalPages={data.total_pages} onPageChanged={onPageChanged} />
       )}
-    </Container>
+    </MainContainer>
   )
 }
 
 export default Home
 
-const Title = styled.h2`
-  margin: 0;
-  padding: 0 0 15px 0;
-`
-
-const Container = styled.div`
-  padding: 16px 28px;
-  margin-left: auto;
-  margin-right: auto;
-`
-
 const LoadingContainer = styled.div`
   display: flex;
   justify-content: center;
   margin-bottom: 10px;
+`
+
+const FavoritesLink = styled.span`
+  justify-self: flex-end;
 `
