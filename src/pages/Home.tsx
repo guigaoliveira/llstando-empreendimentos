@@ -33,9 +33,11 @@ const Home = () => {
     <MainContainer>
       <Header>
         Empreendimentos
-        <FavoritesLink>
-          <Link to="/favorites">Meus favoritos ({favoriteTotal})</Link>
-        </FavoritesLink>
+        {favoriteTotal > 0 && (
+          <FavoritesLink>
+            <Link to="/favorites">Meus favoritos ({favoriteTotal})</Link>
+          </FavoritesLink>
+        )}
       </Header>
       {isLoading && (
         <LoadingContainer>
