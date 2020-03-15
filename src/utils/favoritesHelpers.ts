@@ -1,5 +1,9 @@
 import { Building } from '../typings/building'
 
+export function getFavorite(id: number) {
+  return localStorage.getItem(`${id}`)
+}
+
 export function getFavorites() {
   return Object.values(localStorage).map(item => JSON.parse(item))
 }

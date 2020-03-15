@@ -35,7 +35,7 @@ const Home = () => {
         Empreendimentos
         {favoriteTotal > 0 && (
           <FavoritesLink>
-            <Link to="/favorites">Meus favoritos ({favoriteTotal})</Link>
+            <Link to="/favorites">Favoritos ({favoriteTotal})</Link>
           </FavoritesLink>
         )}
       </Header>

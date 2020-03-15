@@ -2,30 +2,13 @@ import React from 'react'
 import styled from 'styled-components'
 import { FaBed, FaBath, FaRulerCombined, FaCar } from 'react-icons/fa'
 import { Icon, LikeButton } from '../ui'
-import { Building, Address } from '../../typings/building'
+import { Building } from '../../typings/building'
+import { getFavorite } from '../../utils/favoritesHelpers'
+import { formatAddress, formatPrice, formatRange } from '../../utils'
 
 type BuildingProps = {
   items: Building[]
   onToggleLike: (state: boolean, item: Building) => void
-}
-
-const formatAddress = (address: Address) =>
-  [
-    `${address.street_type} ${address.street}`,
-    `${address.number} - ${address.area}`,
-    `${address.city} - ${address.state}`,
-  ].join(', ')
-
-const formatRange = (min: number, max: number) => {
-  return max === min ? min : `${min} - ${max}`
-}
-
-const formatPrice = (price: number) => {
-  const formatter = new Intl.NumberFormat('pt-BR', {
-    style: 'currency',
-    currency: 'BRL',
-  })
-  return formatter.format(price)
 }
 
 const Buildings = ({ items, onToggleLike }: BuildingProps) => {
@@ -87,7 +70,7 @@ const Buildings = ({ items, onToggleLike }: BuildingProps) => {
                 )}
               </Details>
               <LikeButton
-                liked={!!localStorage.getItem(id.toString())}
+                liked={!!getFavorite(id)}
                 onToggle={state => onToggleLike(state, item)}
                 size={18}
                 color="red"

@@ -15,7 +15,7 @@ const Favorites = () => {
 
   return (
     <MainContainer>
-      <Header>Meus favoritos</Header>
+      <Header>Empreendimentos favoritos</Header>
       <Buildings
         items={favoriteItems}
         onToggleLike={(liked, buildingData) =>
