@@ -1,6 +1,6 @@
 import { Address } from '../typings/building'
 
-const formatAddress = (address: Address) =>
+const formatAddress = (address?: Address) =>
   address
     ? [
         `${address.street_type} ${address.street}`,

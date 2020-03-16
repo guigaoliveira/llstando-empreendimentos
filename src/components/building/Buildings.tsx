@@ -100,7 +100,7 @@ const Container = styled.ul`
 const Item = styled.li`
   list-style: none;
   border-radius: 6px;
-  background: #fff;
+  background: ${props => props.theme.colors.white};
   padding: 12px;
 `
 

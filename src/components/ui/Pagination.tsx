@@ -69,14 +69,14 @@ const Button = styled.div<ButtonProps>`
   display: inline-block;
   cursor: pointer;
   :hover {
-    background: #90caf9;
+    background: ${props => props.theme.colors.lightBlue};
   }
-  background: ${props => (props.selected ? '#1565c0' : '#fff')};
+  background: ${({ theme, selected }) => (selected ? theme.colors.darkBlue : theme.colors.white)};
   opacity: ${props => (props.disabled ? 0.25 : 1)};
   pointer-events: ${props => (props.disabled ? 'none' : 'initial')};
   user-select: none;
   font-weight: bold;
-  color: ${props => props.selected && '#fff'};
+  color: ${({ theme, selected }) => selected && theme.colors.white};
   display: flex;
   align-items: center;
 `

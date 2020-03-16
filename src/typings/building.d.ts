@@ -20,14 +20,14 @@ export type DefaultImage = {
 export type Building = {
   readonly id: number
   readonly name: string
-  readonly min_price: number
-  readonly address: Address
+  readonly min_price?: number
+  readonly address?: Address
   readonly default_image?: DefaultImage
-  readonly min_bedrooms: number
-  readonly max_bedrooms: number
-  readonly min_bathrooms: number
-  readonly max_bathrooms: number
-  readonly max_area: number
-  readonly min_parking: number
-  readonly max_parking: number
+  readonly min_bedrooms?: number
+  readonly max_bedrooms?: number
+  readonly min_bathrooms?: number
+  readonly max_bathrooms?: number
+  readonly max_area?: number
+  readonly min_parking?: number
+  readonly max_parking?: number
 }

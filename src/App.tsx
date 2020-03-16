@@ -2,15 +2,16 @@ import * as React from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { createGlobalStyle } from 'styled-components'
 import { Home, Favorites } from './pages'
+import Theme from './Theme'
 
 const GlobalStyle = createGlobalStyle`
   body {
-    background: #eceff1;
+    background: ${props => props.theme.colors.pageBackground};
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     font-family: 'Open Sans';
-    color: #212121;
+    color: ${props => props.theme.colors.font};
   }
   a {
     color: inherit;
@@ -25,17 +26,19 @@ const GlobalStyle = createGlobalStyle`
 export default function App() {
   return (
     <>
-      <GlobalStyle />
-      <Router>
-        <Switch>
-          <Route path="/" exact>
-            <Home />
-          </Route>
-          <Route path="/favorites" exact>
-            <Favorites />
-          </Route>
-        </Switch>
-      </Router>
+      <Theme>
+        <GlobalStyle />
+        <Router>
+          <Switch>
+            <Route path="/" exact>
+              <Home />
+            </Route>
+            <Route path="/favorites" exact>
+              <Favorites />
+            </Route>
+          </Switch>
+        </Router>
+      </Theme>
     </>
   )
 }
