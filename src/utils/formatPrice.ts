@@ -3,7 +3,7 @@ const formatPrice = (price: number) => {
     style: 'currency',
     currency: 'BRL',
   })
-  return price == null ? formatter.format(price) : '-'
+  return price == null ? '-' : formatter.format(price)
 }
 
 export default formatPrice
