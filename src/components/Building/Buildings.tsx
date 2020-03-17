@@ -35,7 +35,17 @@ const Buildings = ({ items, onToggleLike }: BuildingProps) => {
           <Item key={id}>
             <Image src={defaultImage && defaultImage['520x280']} />
             <Infos>
-              <Price>{formatPrice(minPrice)}</Price>
+              <Price>
+                {formatPrice(minPrice)}
+                <ContainerLikeButton>
+                  <LikeButton
+                    liked={!!getFavorite(id)}
+                    onToggle={state => onToggleLike(state, item)}
+                    size={20}
+                    color="red"
+                  />
+                </ContainerLikeButton>
+              </Price>
               <Name>{name}</Name>
               <StyledAddress>{formatAddress(address)}</StyledAddress>
               <Details>
@@ -70,12 +80,6 @@ const Buildings = ({ items, onToggleLike }: BuildingProps) => {
                   </div>
                 )}
               </Details>
-              <LikeButton
-                liked={!!getFavorite(id)}
-                onToggle={state => onToggleLike(state, item)}
-                size={18}
-                color="red"
-              />
             </Infos>
           </Item>
         )
@@ -114,13 +118,15 @@ const Image = styled.img`
 
 const Infos = styled.div`
   display: grid;
-  grid-gap: 8px;
+  grid-gap: 10px;
   grid-template-rows: max-content max-content max-content;
   margin-top: 10px;
 `
 
 const Price = styled.div`
   font-size: 1.25rem;
+  display: grid;
+  grid-auto-flow: column;
 `
 
 const Name = styled.strong`
@@ -138,4 +144,9 @@ const Details = styled.div`
   grid-auto-columns: max-content;
   font-size: 0.875rem;
   color: #616161;
+`
+
+const ContainerLikeButton = styled.div`
+  display: flex;
+  justify-content: flex-end;
 `
