@@ -92,13 +92,16 @@ export default Buildings
 
 const Container = styled.ul`
   display: grid;
-  grid-gap: 12px;
+  grid-gap: 14px;
   margin: 0;
   padding: 0;
   grid-template-columns: repeat(3, 1fr);
   grid-auto-rows: minmax(min-content, max-content);
   @media (max-width: 768px) {
     grid-template-columns: none;
+  }
+  @media (max-width: 1024px) and (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
   }
 `
 
