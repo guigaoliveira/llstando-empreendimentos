@@ -34,7 +34,7 @@ npm test
 - Criaria um tema para a aplicação usando o Styled Components (✔️)
 - Cacheamento para as requisições a API
 - Melhoria as mensagens de possíveis erros (de rede por exemplo) ao tentar listar
-- Adicionaria um estado de lista vazia para a lista de empreendimentos
+- Adicionaria um estado de lista vazia para a lista de empreendimentos (✔️)
 - Colocaria filtros para a listagem
 - Adicionaria botões para ir para o ínicio e para a última página no componente de paginação
 - Para cada página selecionada no componente de páginação mudaria o link para /numero-da-pagina por exemplo e tornaria acessível via rota 

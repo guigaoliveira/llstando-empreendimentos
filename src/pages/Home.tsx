@@ -48,19 +48,20 @@ const Home = () => {
         </LoadingContainer>
       )}
       {isError && <div>Ops...houve algum erro ao tentar listar os empreendimentos :(</div>}
-      {data && data.buildings ? (
-        <Buildings
-          items={data.buildings}
-          onToggleLike={(liked, buildingData) => {
-            if (liked) addFavorite(buildingData)
-            else removeFavorite(buildingData)
-            return setFavoriteTotal(getTotalFavorites())
-          }}
-        />
-      ) : (
-        !isLoading && <div>Sem dados para exibir</div>
-      )}
-      {data && data.buildings && data.total_pages && (
+      {data?.buildings &&
+        (data.buildings.length ? (
+          <Buildings
+            items={data.buildings}
+            onToggleLike={(liked, buildingData) => {
+              if (liked) addFavorite(buildingData)
+              else removeFavorite(buildingData)
+              return setFavoriteTotal(getTotalFavorites())
+            }}
+          />
+        ) : (
+          <div>Sem dados para exibir</div>
+        ))}
+      {data?.buildings && data.total_pages && (
         <Pagination totalPages={data.total_pages} onPageChanged={onPageChanged} />
       )}
     </MainContainer>
