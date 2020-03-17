@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { useState } from 'react'
 import { FaHeart, FaRegHeart } from 'react-icons/fa'
-import Icon from './Icon'
+import Icon from '../Icon'
 
 type FavoriteButtonProps = {
   liked: boolean

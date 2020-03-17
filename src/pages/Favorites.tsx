@@ -1,9 +1,10 @@
 import * as React from 'react'
-import { useState, useCallback } from 'react'
-import { Buildings } from '../components/building'
-import { Header, MainContainer } from '../components/ui'
-import { getFavorites, addFavorite, removeFavorite } from '../utils/favoritesHelpers'
+import { useCallback, useState } from 'react'
+import Buildings from '../components/Building'
+import Header from '../components/Header'
+import MainContainer from '../components/MainContainer'
 import { Building } from '../typings/building'
+import { addFavorite, getFavorites, removeFavorite } from '../utils/favoritesHelpers'
 
 const Favorites = () => {
   const [favoriteItems, setFavoriteItems] = useState(getFavorites())

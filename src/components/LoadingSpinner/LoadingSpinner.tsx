@@ -11,8 +11,8 @@ const rotate = keyframes`
   }
 `
 
-const Loading = styled(FaCircleNotch)`
+const LoadingSpinner = styled(FaCircleNotch)`
   animation: ${rotate} 2s infinite linear;
 `
 
-export default Loading
+export default LoadingSpinner
